@@ -17,9 +17,7 @@ from pymatgen.apps.borg.queen import BorgQueen
 from mpinterfaces import MPINTVaspDrone
 
 def get_e_v(fname):
-    data = np.loadtxt(fname, usecols = (1,3,5,6,7))    
-    volumes = data[:,1]
-    energies = data[:,4]
+    volumes, energies = np.loadtxt(fname, usecols=(3,7), unpack=True)
     return volumes, energies
 
 def custom_plot(volumes, energies, eos):
